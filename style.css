@@ -1,0 +1,104 @@
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+  color: #fff;
+  overflow: hidden;
+}
+.cute-photo {
+  max-width: 20%;         /* fits nicely on phone/computer */
+  height: auto;            /* keeps proportions */
+  border-radius: 0px;      /* soft rounded corners */
+  margin: 20px 0;           /* space around it */
+  box-shadow: 0 10px 25px #f4f7f8;  /* pretty shadow */
+  border: 4px solid white;  /* white frame vibe */
+}
+/* Floating Hearts */
+.hearts-container {
+  position: fixed;          /* stays on screen even when scrolling */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;     /* lets you click buttons underneath */
+  overflow: hidden;
+  z-index: -1;              /* behind your content */
+}
+
+.heart {
+  position: absolute;
+  bottom: -10%;             /* start below screen */
+  font-size: 2rem;          /* adjust size: 1.5rem smaller, 3rem bigger */
+  opacity: 0;
+  animation: float-up linear infinite;
+  color: #ff4757;           /* pink-red, or change to #ff69b4 hot pink etc. */
+  text-shadow: 0 0 10px rgba(255, 105, 180, 0.8); /* soft glow */
+}
+
+/* Make each heart start at different times & positions */
+.heart:nth-child(1) { left: 10%; animation-duration: 12s; animation-delay: 0s; }
+.heart:nth-child(2) { left: 20%; animation-duration: 15s; animation-delay: 2s; }
+.heart:nth-child(3) { left: 30%; animation-duration: 10s; animation-delay: 1s; }
+.heart:nth-child(4) { left: 40%; animation-duration: 14s; animation-delay: 4s; }
+.heart:nth-child(5) { left: 50%; animation-duration: 13s; animation-delay: 3s; }
+.heart:nth-child(6) { left: 60%; animation-duration: 11s; animation-delay: 5s; }
+.heart:nth-child(7) { left: 70%; animation-duration: 16s; animation-delay: 0.5s; }
+.heart:nth-child(8) { left: 80%; animation-duration: 12s; animation-delay: 6s; }
+.heart:nth-child(9) { left: 15%; animation-duration: 18s; animation-delay: 7s; }
+.heart:nth-child(10){ left: 85%; animation-duration: 14s; animation-delay: 8s; }
+
+/* The floating animation */
+@keyframes float-up {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-120vh) translateX(30px) rotate(360deg); /* rise up, sway a bit */
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-150vh) translateX(-20px) rotate(-360deg);
+    opacity: 0;
+  }
+}
+
+.container {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 30px;
+  max-width: 90%;
+}
+
+h1 { font-size: 3.5rem; margin: 10px 0; text-shadow: 3px 3px 10px rgba(0,0,0,0.3); }
+.question { font-size: 1.6rem; margin: 10px 0; }
+.big-question { font-size: 3rem; font-weight: bold; margin: 30px 0; color: #ff4757; }
+
+.buttons { margin: 40px 0; }
+.btn {
+  font-size: 1.8rem;
+  padding: 15px 40px;
+  margin: 20px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.yes { background: #ff4757; color: white; }
+.yes:hover { transform: scale(1.15); background: #e84118; }
+
+.no { background: #57606f; color: white; }
+
+.hidden { display: none; }
+
+#message h2 { font-size: rem; color: lab(97.93% 0.01 -0.01); margin: 20px 0; }
+#message p { font-size: 1rem; line-height: 1; }
